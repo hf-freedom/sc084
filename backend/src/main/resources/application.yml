@@ -1,0 +1,29 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: energy-management-system
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    serialization:
+      write-dates-as-timestamps: false
+
+scheduling:
+  enabled: true
+
+energy:
+  quota:
+    water-price: 5.0
+    electricity-price: 1.0
+    tier-prices:
+      - threshold: 0.0
+        price-multiplier: 1.2
+      - threshold: 20.0
+        price-multiplier: 1.5
+      - threshold: 50.0
+        price-multiplier: 2.0
+  alert:
+    daily-quota-threshold: 0.9
+    anomaly-fluctuation-threshold: 0.5
